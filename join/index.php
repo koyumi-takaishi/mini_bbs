@@ -78,14 +78,15 @@ if (!empty($_POST)) {
 		// おわり！！！！！！
 		exit();
 	}
-	// 書き直し
-	// URLパラメータのactionがrewriteだったら
-	if ($_REQUEST['action'] == 'rewrite') {
-		// $_POSTに$_SESSIONの内容を戻す
-		$_POST = $_SESSION['join'];
-		// ファイルアップロードはやり直してもらう必要があるから、そのメッセージを出すための処理
-		$error['rewrite'] = true;
-	}
+}
+
+// 書き直し
+// URLパラメータのactionがrewriteだったら
+if ($_REQUEST['action'] == 'rewrite') {
+	// $_POSTに$_SESSIONの内容を戻す
+	$_POST = $_SESSION['join'];
+	// ファイルアップロードはやり直してもらう必要があるから、そのメッセージを出すための処理
+	$error['rewrite'] = true;
 }
 ?>
 <!DOCTYPE html>
