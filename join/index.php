@@ -109,6 +109,7 @@ if ($_REQUEST['action'] == 'rewrite') {
 		</div>
 		<div id="content">
 			<p>次のフォームに必要事項をご記入ください。</p>
+			<p>メールアドレスはダミーで大丈夫です！パスワードは暗号化して保存されます！</p>
 			<form action="" method="post" enctype="multipart/form-data">
 				<dl>
 					<dt>ニックネーム<span class="required">必須</span></dt>
