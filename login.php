@@ -24,7 +24,7 @@ if (!empty($_POST)) {
 		));
 		// $loginから情報を取り出す
 		$member = $login->fetch();
-		
+
 		// $memberが空じゃ無かったら（入力した会員情報が存在していたら）
 		if ($member) {
 			// ログイン成功
@@ -35,12 +35,13 @@ if (!empty($_POST)) {
 			// ログイン情報をCookieに記録する
 			if ($_POST['save'] == 'on') {
 				// 14日後まで保存しておく
-				setcookie('email', $_POST['email'], time()+60*60*24*14);
-				setcookie('password', $_POST['password'], time()+60*60*24*14);
+				setcookie('email', $_POST['email'], time() + 60 * 60 * 24 * 14);
+				setcookie('password', $_POST['password'], time() + 60 * 60 * 24 * 14);
 			}
 
 			// index.phpに遷移
-			header('Location: index.php'); exit();
+			header('Location: index.php');
+			exit();
 		} else {
 			// ログイン失敗
 			$error['login'] = 'failed';
@@ -53,10 +54,12 @@ if (!empty($_POST)) {
 ?>
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="robots" content="noindex">
 	<title>ひとこと掲示板</title>
 
 	<link rel="stylesheet" href="./css/style.css" />
@@ -77,11 +80,11 @@ if (!empty($_POST)) {
 				<dl>
 					<dt>メールアドレス</dt>
 					<dd>
-						<input type="text" name="email" size="35" maxlength="255" value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES); ?>"/>
-						<?php if ($error['login'] == 'blank'): ?>
+						<input type="text" name="email" size="35" maxlength="255" value="<?php echo htmlspecialchars($_POST['email'], ENT_QUOTES); ?>" />
+						<?php if ($error['login'] == 'blank') : ?>
 							<p class="error">* メールアドレスとパスワードをご記入ください</p>
 						<?php endif; ?>
-						<?php if ($error['login'] == 'failed'): ?>
+						<?php if ($error['login'] == 'failed') : ?>
 							<p class="error">* ログインに失敗しました。正しくご記入ください。</p>
 						<?php endif; ?>
 					</dd>
@@ -91,8 +94,7 @@ if (!empty($_POST)) {
 					</dd>
 					<dt>ログイン情報の記録</dt>
 					<dd>
-						<input id="save" type="checkbox" name="save" value="on"><label
-						for="save">次回からは自動的にログインする</label>
+						<input id="save" type="checkbox" name="save" value="on"><label for="save">次回からは自動的にログインする</label>
 					</dd>
 				</dl>
 				<div><input type="submit" value="ログインする" /></div>
@@ -101,4 +103,5 @@ if (!empty($_POST)) {
 
 	</div>
 </body>
+
 </html>
