@@ -32,6 +32,7 @@ if (!empty($_POST)) {
 	// $_FILESはファイルアップロードのときにファイルが代入される変数
 	// input要素のname属性がキーになる（ここではimage）
 	$fileName = $_FILES['image']['name'];
+
 	// ファイル名($fileName)が空じゃなかったら
 	if (!empty($fileName)) {
 		// $fileNameの後ろから３文字を切り出して$extに代入

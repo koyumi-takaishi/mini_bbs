@@ -131,7 +131,15 @@ function makeLink($value) {
 		?>
 		<div class="msg">
 			<!-- 投稿者の画像 -->
-			<img src="member_picture/<?php echo h($post['picture']); ?>" width="48" height="48" alt="<?php echo h($post['name']); ?>" />
+			<?php 
+				// $fileNameの後ろから３文字を切り出して$extに代入
+				$ext = substr($post['picture'], -3);
+				// $extがjpgでない、かつ、$extがgifでない場合、noimage画像を出力
+				if ($ext != 'jpg' && $ext != 'gif') { ?>
+				<img src="member_picture/noimage.jpg" width="48" height="48" alt="NoImage" />
+			<?php } else { ?>
+				<img src="member_picture/<?php echo h($post['picture']); ?>" width="48" height="48" alt="<?php echo h($post['name']); ?>" />
+			<?php } ?>
 			<!-- 投稿内容と投稿者名 -->
 			<p><?php echo makeLink(h($post['message']));?><span class="name">（<?php echo h($post['name']); ?>）</span>[<a href="index.php?res=<?php echo h($post['id']); ?>">Re</a>]</p>
 			<!-- 投稿日時 -->
