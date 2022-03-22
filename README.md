@@ -1,3 +1,3 @@
 # mini_bbs
-## PHPの練習です
-## dbconnect.phpはセキュリティの観念からGitHubにはアップしていません
+PHPの練習です
+dbconnect.phpとmember_pictureフォルダはセキュリティの観念からGitHubにはアップしていません
