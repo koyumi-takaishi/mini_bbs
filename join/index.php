@@ -128,7 +128,7 @@ if ($_REQUEST['action'] == 'rewrite') {
 						<?php if ($error['email'] == 'blank') : ?>
 							<p class="error">* メールアドレスを入力してください</p>
 						<?php endif; ?>
-						<?php if ($error['email'] == 'duplicate'): ?>
+						<?php if ($error['email'] == 'duplicate') : ?>
 							<p class="error">* 指定されたメールアドレスはすでに登録されています</p>
 						<?php endif; ?>
 					</dd>
